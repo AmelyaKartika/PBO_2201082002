@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author hp
  */
 public class AnggotaController {
-  private FromAnggota formAnggota;
+    private FromAnggota formAnggota;
     private Anggota anggota;
     private AnggotaDao anggotaDao;
     

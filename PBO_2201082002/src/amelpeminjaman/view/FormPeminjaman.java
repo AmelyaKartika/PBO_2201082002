@@ -15,7 +15,7 @@ public class FormPeminjaman extends javax.swing.JFrame {
      */
     PeminjamanController controller;
     public FormPeminjaman() {
-          initComponents();
+        initComponents();
         controller = new PeminjamanController(this);
         controller.clearForm();
         controller.tampil();
@@ -150,6 +150,11 @@ public class FormPeminjaman extends javax.swing.JFrame {
                 "Kode Anggota", "Kode Buku", "Tanggal Pinjam", "Tanggal Kembali"
             }
         ));
+        tabelPeminjaman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPeminjamanMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelPeminjaman);
 
         getContentPane().add(jScrollPane1);
@@ -186,6 +191,10 @@ public class FormPeminjaman extends javax.swing.JFrame {
     private void txtKodeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeBukuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKodeBukuActionPerformed
+
+    private void tabelPeminjamanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPeminjamanMouseClicked
+     controller.getPeminjaman();        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelPeminjamanMouseClicked
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,8 @@
  */
 package amelbuku.view;
 import amelbuku.controller.BukuController;
+import amelpeminjaman.view.FormPeminjaman;
+import amelpeminjaman.controller.PeminjamanController;
 
 /**
  *
@@ -15,6 +17,7 @@ public class FromBuku extends javax.swing.JFrame {
      * Creates new form FromBuku
      */
     BukuController controller;
+    
     public FromBuku() {
         initComponents();
         controller = new BukuController(this);
@@ -85,7 +88,6 @@ public class FromBuku extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 100, 60, 16);
 
-        txtKodeBuku.setText("jTextField1");
         txtKodeBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKodeBukuActionPerformed(evt);
@@ -93,16 +95,16 @@ public class FromBuku extends javax.swing.JFrame {
         });
         getContentPane().add(txtKodeBuku);
         txtKodeBuku.setBounds(120, 40, 170, 22);
-
-        txtJudulBuku.setText("jTextField2");
         getContentPane().add(txtJudulBuku);
         txtJudulBuku.setBounds(120, 60, 170, 22);
 
-        txtPengarang.setText("jTextField3");
+        txtPengarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPengarangActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtPengarang);
         txtPengarang.setBounds(120, 80, 170, 22);
-
-        txtPenerbit.setText("jTextField4");
         getContentPane().add(txtPenerbit);
         txtPenerbit.setBounds(120, 100, 170, 22);
 
@@ -196,6 +198,10 @@ public class FromBuku extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKodeBukuActionPerformed
 
+    private void txtPengarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPengarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPengarangActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,7 +232,18 @@ public class FromBuku extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FromBuku().setVisible(true);
+            FromBuku formBuku = new FromBuku();
+            FormPeminjaman formPeminjaman = new FormPeminjaman();
+
+            /* Create instances of BukuController and PeminjamanController */
+            BukuController bukuController = new BukuController(formBuku);
+            PeminjamanController peminjamanController = new PeminjamanController(formPeminjaman);
+        
+
+            /* Set the visibility of the forms */
+            formBuku.setVisible(true);
+            formPeminjaman.setVisible(true);
+                
             }
         });
     }

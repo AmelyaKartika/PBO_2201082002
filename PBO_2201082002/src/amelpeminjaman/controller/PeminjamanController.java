@@ -21,6 +21,9 @@ public class PeminjamanController {
         this.formPeminjaman = formPeminjaman;
         peminjamanDao = new PeminjamanDao();
     }
+ public void updateKodeBuku(String kodeBuku) {
+    formPeminjaman.getTxtKodeBuku().setText(kodeBuku);
+}
 public void clearForm(){
     formPeminjaman.getTxtKodeAnggota().setText("");
      formPeminjaman.getTxtKodeBuku().setText("");
@@ -81,4 +84,6 @@ public void savePeminjaman() {
         peminjamanDao.delete(index);
         JOptionPane.showMessageDialog(formPeminjaman, "Delete OK");
     }
+
+   
 }

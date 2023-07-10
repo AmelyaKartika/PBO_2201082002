@@ -5,7 +5,7 @@
 package amelbuku.controller;
 import amelbuku.model.*;
 import amelbuku.view.FromBuku;
-import amelpeminjaman.view.FormPeminjaman;
+import amelpeminjaman.controller.PeminjamanController;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,16 +17,17 @@ public class BukuController {
     private FromBuku formBuku;
     private Buku buku;
     private BukuDao bukuDao;
+    private PeminjamanController peminjamanController;
     
     public BukuController(FromBuku formBuku){
         this.formBuku =formBuku ;
         bukuDao = new BukuDao();
         
     }
-
-    public BukuController(FormPeminjaman formPeminjaman) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void setPeminjamanController(PeminjamanController peminjamanController) {
+    this.peminjamanController = peminjamanController;
+}
+   
     public void clearForm(){
         formBuku.getTxtJudulBuku().setText("");
        formBuku.getTxtPengarang().setText("");
@@ -60,7 +61,8 @@ public class BukuController {
         buku.setPenerbit(formBuku.getTxtPenerbit().getText());
          bukuDao.insert(buku);
         JOptionPane.showMessageDialog(formBuku,"insert OK");
-        
+       // Update kode buku di Form Peminjaman
+         peminjamanController.updateKodeBuku(formBuku.getTxtKodeBuku().getText());
     }
     
     public void updateBuku(){

@@ -13,7 +13,7 @@ public class AnggotaDao {
     
     public AnggotaDao(){
         data.add(new Anggota ("112","Kevin","Padang","L"));
-        data.add(new Anggota ("113","Amelya","Padang","p"));
+        data.add(new Anggota ("113","Amelya","Padang","P"));
         
     }
     
